@@ -321,6 +321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -482,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6411aa217e0d34fb8a4bd3047e0720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 20
 --- !u!1 &1785942815
 GameObject:
   m_ObjectHideFlags: 0

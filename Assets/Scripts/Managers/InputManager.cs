@@ -1,19 +1,33 @@
+癤퓎sing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class InputManager
 {
     public Action KeyAction = null;
+    public Action<Define.MouseEvent> MouseAction = null;
 
-    //모든 체크를 Update에 넣으면 성능 이슈가 생길 수 있음
+    bool _pressed = false;
 
-    void OnUpdate()
+    public void OnUpdate()
     {
-        if (Input.anyKey == false)
-            return;
-        if (KeyAction != null)
+        if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
+
+        if (MouseAction != null)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                MouseAction.Invoke(Define.MouseEvent.Press);
+                _pressed = true;
+            }
+            else
+            {
+                if (_pressed)
+                    MouseAction.Invoke(Define.MouseEvent.Click);
+                _pressed = false;
+            }
+        }
     }
 }
